@@ -236,7 +236,7 @@ CameraHAL_HandlePreviewData(const android::sp<android::IMemory>& dataPtr,
                          GRALLOC_USAGE_SW_READ_OFTEN);
       retVal = mWindow->set_buffers_geometry(mWindow,
                                              previewWidth, previewHeight,
-                                             HAL_PIXEL_FORMAT_YCrCb_420_SP);
+											 HAL_PIXEL_FORMAT_YCrCb_420_SP);
       if (retVal == NO_ERROR) {
          int32_t stride;
          buffer_handle_t *bufHandle = NULL;
@@ -248,12 +248,11 @@ CameraHAL_HandlePreviewData(const android::sp<android::IMemory>& dataPtr,
             if (retVal == NO_ERROR) {
                private_handle_t const *privHandle =
                   reinterpret_cast<private_handle_t const *>(*bufHandle);
-                  CameraHAL_CopyBuffers_Hw(mHeap->getHeapID(), privHandle->fd,
+               CameraHAL_CopyBuffers_Hw(mHeap->getHeapID(), privHandle->fd,
                                              offset, privHandle->offset,
                                              previewFormat, previewFormat,
                                              0, 0, previewWidth,
-                                             previewHeight);
-                                             
+                                            previewHeight);
                mWindow->enqueue_buffer(mWindow, bufHandle);
                ALOGV("CameraHAL_HandlePreviewData: enqueued buffer\n");
             } else {
@@ -379,7 +378,11 @@ CameraHAL_GetCam_Info(int camera_id, struct camera_info *info)
    }
    if (!dynamic) {
       info->facing = CAMERA_FACING_BACK;
+#ifdef CHACHA
+      info->orientation = 0;
+#else
       info->orientation = 90;
+#endif
    }
    return NO_ERROR;
 }
@@ -413,10 +416,14 @@ video_sizes);
 }
 #endif
 
-   if (!settings.get(android::CameraParameters::KEY_VIDEO_SIZE)) {
-      settings.set(android::CameraParameters::KEY_VIDEO_SIZE, preferred_size);
+     if (!settings.get(android::CameraParameters::KEY_VIDEO_SIZE)) {
+      settings.set("record-size", preferred_size);
+       settings.set(android::CameraParameters::KEY_VIDEO_SIZE, preferred_size);
+   } else {
+      settings.set("record-size", settings.get(android::CameraParameters::KEY_VIDEO_SIZE)); 
    }
-
+   
+   
    if (!settings.get(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO)) {
       settings.set(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO,
                    preferred_size);

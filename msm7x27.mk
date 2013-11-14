@@ -137,6 +137,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     media.a1026.nsForVoiceRec = 0 \
     media.a1026.enableA1026 = 1
+    
+#Disable ADB authentication until it works
+ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0  
 
 # We have enough storage space to hold precise GC data
 #PRODUCT_TAGS += dalvik.gc.type-precise

@@ -39,7 +39,7 @@ TARGET_PROVIDES_LIBAUDIO := true
 ### Kernel
 TARGET_KERNEL_SOURCE := kernel/htc/msm7227
 TARGET_KERNEL_CONFIG := marvel_defconfig
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.6
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
 
 ### USB Mass Storage
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/usb_mass_storage/lun0/file

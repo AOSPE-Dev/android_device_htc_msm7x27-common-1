@@ -48,10 +48,6 @@ PRODUCT_COPY_FILES += \
     device/htc/msm7x27-common/firmware/bcm4329.hcd:system/etc/firmware/bcm4329.hcd \
     device/htc/msm7x27-common/firmware/fw_bcm4329.bin:system/etc/firmware/fw_bcm4329.bin \
     device/htc/msm7x27-common/firmware/fw_bcm4329_apsta.bin:system/etc/firmware/fw_bcm4329_apsta.bin
-
-# Bluetooth configuration files
-PRODUCT_COPY_FILES += \
-        system/bluetooth/data/main.le.conf:system/etc/bluetooth/main.conf
         
 # Memory
 PRODUCT_PROPERTY_OVERRIDES += \

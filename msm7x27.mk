@@ -52,6 +52,10 @@ PRODUCT_COPY_FILES += \
 # Bluetooth configuration files
 PRODUCT_COPY_FILES += \
         system/bluetooth/data/main.le.conf:system/etc/bluetooth/main.conf
+        
+# Memory
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.low_ram=true
 
 # Audio
 PRODUCT_PACKAGES += \

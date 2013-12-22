@@ -144,6 +144,9 @@ ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
 # We have enough storage space to hold precise GC data
 #PRODUCT_TAGS += dalvik.gc.type-precise
 
+# Use set_perm (no selinux version) instead of set_metadata (selinux version)
+USE_SET_METADATA := false
+
 ### Artwork
 PRODUCT_LOCALES += mdpi
 

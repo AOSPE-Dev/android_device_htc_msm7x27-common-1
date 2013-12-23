@@ -75,6 +75,7 @@ TARGET_QCOM_HDMI_OUT := false
 TARGET_GRALLOC_USES_ASHMEM := false
 TARGET_USES_GENLOCK := true
 TARGET_NO_HW_VSYNC := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_MISSING_PIXEL_FORMATS
 BOARD_EGL_NEEDS_LEGACY_FB := true
 
 #TARGET_NO_HW_OVERLAY := true
@@ -129,7 +130,10 @@ SMALLER_FONT_FOOTPRINT := true
 # If WITH_JIT is configured, build multiple versions of libdvm.so to facilitate
 # correctness/performance bugs triage
 WITH_JIT := true
-
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heaptargetutilization=0.25 \
+    dalvik.vm.jit.codecachesize=0
+	
 ### Webkit
 TARGET_FORCE_CPU_UPLOAD := true
 

@@ -12,13 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-TARGET_SPECIFIC_HEADER_PATH := device/htc/marvel/msm7x27-common/include
+TARGET_SPECIFIC_HEADER_PATH := device/htc/msm7x27-common/include
 
 # Make sure this folder exists so display stuff doesn't fail
 $(shell mkdir -p $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/)
 
 # inherit from common msm7x27 Recovery
--include device/htc/marvel/msm7x27-common/recovery/BoardConfigCommon.mk
+-include device/htc/msm7x27-common/recovery/BoardConfigCommon.mk
 
 
 # CPU
@@ -72,8 +72,8 @@ WIFI_BAND := 802_11_ABG
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/marvel/msm7x27-common/bluetooth/include
-BOARD_BLUEDROID_VENDOR_CONF := device/htc/marvel/msm7x27-common/bluetooth/vnd_msm7x27.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/msm7x27-common/bluetooth/include
+BOARD_BLUEDROID_VENDOR_CONF := device/htc/msm7x27-common/bluetooth/vnd_msm7x27.txt
 
 ### QCOM
 BOARD_USES_QCOM_HARDWARE := true
@@ -84,7 +84,7 @@ BOARD_USE_QCOM_PMEM := true
 
 # Adreno
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
-BOARD_EGL_CFG := device/htc/marvel/msm7x27-common/egl.cfg
+BOARD_EGL_CFG := device/htc/msm7x27-common/egl.cfg
 ### CPU/Graphics
 TARGET_QCOM_DISPLAY_VARIANT := legacy
 USE_OPENGL_RENDERER := true

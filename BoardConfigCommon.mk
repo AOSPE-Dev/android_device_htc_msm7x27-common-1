@@ -83,7 +83,9 @@ BOARD_USE_QCOM_PMEM := true
 
 # Adreno
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
+BOARD_EGL_WORKAROUND_BUG_10194508 := true
 BOARD_EGL_CFG := device/htc/msm7x27-common/egl.cfg
+
 ### CPU/Graphics
 TARGET_QCOM_DISPLAY_VARIANT := legacy
 TARGET_QCOM_MEDIA_VARIANT := legacy

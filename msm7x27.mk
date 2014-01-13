@@ -63,7 +63,6 @@ PRODUCT_PACKAGES += \
 
 ### Sensors (Compass, G-Sensor, Proximity, ...)
 PRODUCT_PACKAGES += \
-    sensors.msm7x27 \
     lights.msm7x27
 
 # Video
@@ -78,8 +77,7 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    libcamera \
-    camera.msm7x27
+    libcamera
 
 # QCOM OMX
 PRODUCT_PACKAGES += \

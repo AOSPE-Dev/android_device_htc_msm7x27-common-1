@@ -135,6 +135,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     media.a1026.nsForVoiceRec = 0 \
     media.a1026.enableA1026 = 1
+    +# Dalvik
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.checkjni=false \
+    dalvik.vm.dexopt-data-only=1 \
+    dalvik.vm.dexopt-flags=v=a,o=v,m=y,u=y
+
+$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
+    
     
 #Disable ADB authentication until it works
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0  
@@ -147,7 +156,6 @@ USE_SET_METADATA := false
 
 ### Artwork
 PRODUCT_LOCALES += mdpi
-
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 

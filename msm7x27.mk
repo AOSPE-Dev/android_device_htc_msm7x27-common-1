@@ -136,18 +136,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.a1026.nsForVoiceRec = 0 \
     media.a1026.enableA1026 = 1
     
+# Dalvik heap config for devices with 512MB memory
+$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
+    
 #Disable ADB authentication until it works
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0  
 
 # We have enough storage space to hold precise GC data
 #PRODUCT_TAGS += dalvik.gc.type-precise
-
 # Use set_perm (no selinux version) instead of set_metadata (selinux version)
 USE_SET_METADATA := false
 
 ### Artwork
 PRODUCT_LOCALES += mdpi
-
 PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
